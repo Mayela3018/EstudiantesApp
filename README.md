@@ -1,34 +1,36 @@
 🌟 EstudiantesApp – CRUD con Room + Jetpack Compose
 
-Aplicación móvil desarrollada en Android Studio, utilizando Kotlin, Jetpack Compose y Room, que permite gestionar una lista de estudiantes mediante un CRUD completo: crear, leer, actualizar y eliminar.
+Aplicación móvil desarrollada en Android Studio, utilizando Kotlin, Jetpack Compose y Room.
+Permite gestionar estudiantes mediante un CRUD completo: crear, leer, actualizar y eliminar, con validaciones y una interfaz moderna pastel.
 
-Este proyecto fue desarrollado como parte del Examen Práctico de Programación Móvil – TECSUP.
+Proyecto realizado como parte del Examen Práctico – Programación Móvil (TECSUP).
 
-📌 Características Principales
+✨ Características Principales
 
-✔ CRUD completo de estudiantes
+✔ CRUD completo (Crear, Leer, Actualizar, Eliminar)
 ✔ Persistencia local con Room
-✔ Interfaz moderna con Jetpack Compose
-✔ Lista con búsqueda por nombre o carrera
-✔ Validación de DNI único (8 dígitos)
-✔ Validación del promedio (0 a 20)
+✔ Diseño pastel elegante (rosa, lila y celeste)
+✔ Interfaz moderna 100% Jetpack Compose (sin XML)
+✔ Búsqueda en tiempo real por nombre o carrera
+✔ Validación de DNI único (8 dígitos exactos)
+✔ Validación de promedio 0–20
 ✔ Manejo de estado con ViewModel + StateFlow
-✔ Arquitectura limpia (DAO, Repository, ViewModel)
+✔ Arquitectura limpia: DAO + Repository + ViewModel
 ✔ Navegación simple entre pantallas
 ✔ Mensajes de error y confirmación con Toast
 
 🧮 Modelo de Datos – Estudiante
+La tabla Estudiantes contiene los siguientes campos:
+| Campo        | Tipo   | Descripción                                  |
+| ------------ | ------ | -------------------------------------------- |
+| idEstudiante | Int    | Auto-generado (Primary Key)                  |
+| apellido     | String | Apellido del estudiante                      |
+| nombre       | String | Nombre del estudiante                        |
+| dni          | String | DNI **único** de 8 dígitos                   |
+| carrera      | String | Carrera profesional                          |
+| promedio     | Double | Promedio validado (0 – 20)                   |
+| fechaIngreso | String | Fecha de ingreso (dd/MM/yyyy o texto simple) |
 
-La base de datos contiene una tabla Estudiante con los siguientes campos:
-
-Campo	Tipo	Descripción
-idEstudiante	Int	Autogenerado (Primary Key)
-apellido	String	Apellido del estudiante
-nombre	String	Nombre del estudiante
-dni	String	DNI único de 8 dígitos
-carrera	String	Carrera profesional
-promedio	Double	Decimal (0 – 20), con validación
-fechaIngreso	String	Fecha de ingreso (texto o formato dd/MM/yyyy)
 📂 Estructura del Proyecto
 app/
  └── java/com.ticona.estudiantesapp/
@@ -53,114 +55,51 @@ app/
 
 🏗️ Tecnologías Utilizadas
 
-Kotlin
+🟣 Kotlin
+🌸 Jetpack Compose (UI moderna)
+🏛 Room (base de datos local)
+🔄 Coroutines + StateFlow
+🎯 ViewModel – Arquitectura MVVM
+🎨 Material Design 3
 
-Jetpack Compose
-
-Room (persistencia local)
-
-Coroutines + StateFlow
-
-ViewModel
-
-Material 3
-
-⚙️ Instalación y Configuración
-1. Clonar o descargar el proyecto
+⚙️ Instalación y Ejecución
+1️⃣ Clonar el repositorio
 git clone https://github.com/usuario/EstudiantesApp.git
-
-2. Abrir en Android Studio
-
-File → Open → Seleccionar carpeta del proyecto
-
-3. Actualizar dependencias
-
-En build.gradle.kts están incluidas:
-(Room, ViewModel, Lifecycle, Compose BOM, Coroutines…)
-
-4. Ejecutar la app
-
-Selecciona un emulador o dispositivo físico
-👉 Clic en Run ▶
-
-🖼️ Capturas de Pantalla
-
-(Aquí pegas tus imágenes cuando las tomes)
-
-📋 Lista principal
-
-(imagen)
-
-➕ Formulario – Registrar estudiante
-
-(imagen)
-
-✏️ Formulario – Editar estudiante
-
-(imagen)
-
-❌ Eliminación
-
-(imagen)
+2️⃣ Abrir en Android Studio
+File → Open → Selecciona el proyecto
+3️⃣ Verificar dependencias
+Incluye:
+Room
+ViewModel
+Lifecycle
+Coroutines
+Compose BOM
+Material3
+(Todo ya listo en build.gradle.kts)
+4️⃣ Ejecutar la app
+Selecciona un emulador o dispositivo
+Haz clic en Run ▶
 
 🧪 Validaciones Implementadas
 
-✔ DNI debe tener exactamente 8 dígitos
-✔ DNI debe ser único en la base de datos
-✔ Promedio debe estar entre 0 y 20
-✔ Todos los campos obligatorios
-✔ Se muestran mensajes de error y confirmación
+✔ DNI con 8 dígitos
+✔ No permite DNI duplicados
+✔ Promedio válido entre 0 y 20
+✔ Campos obligatorios
+✔ Toast de éxito/error
+✔ Modo editar y modo registrar
 
-🧠 Arquitectura (Resumen Técnico)
-🏛️ Capa de Datos (Room)
 
-Entidad: Estudiante.kt
-
-DAO: consultas CRUD + búsquedas
-
-Base de datos: AppDatabase.kt
-
-📚 Repository
-
-Intermediario entre DAO y ViewModel
-
-Lógica de acceso a datos + validaciones de existencia
-
-🎯 ViewModel
-
-Manejo de estados con StateFlow
-
-Corrutinas para operaciones Room
-
-Lógica de validación
-
-🎨 Jetpack Compose
-
-Pantalla Lista
-
-Pantalla Formulario
-
-Componentes reutilizables
-
-💡 Conclusión del Proyecto
-
-Esta aplicación demuestra el uso correcto de:
-
-Room
-
-Arquitectura MVVM
-
+💡 Conclusión
+Este proyecto demuestra el uso correcto de:
+Room + DAO
+MVVM con ViewModel
 Jetpack Compose
-
 Navegación simple sin XML
+Persistencia local
+Manejo de estados reactivos (StateFlow)
+Validaciones avanzadas en formularios
 
-Stateful UI con StateFlow
-
-Validaciones avanzadas
-
-Cumple completamente con la rúbrica del examen y representa un proyecto sólido, escalable y moderno.
-
-👨‍💻 Desarrollado por:
-
-Maye
-Estudiante de Desarrollo de Software
+👨‍💻 Desarrollado por
+✨ Maye
+2025 💚✨
